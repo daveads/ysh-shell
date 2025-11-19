@@ -1,0 +1,5 @@
+[book]
+authors = ["daveads"]
+language = "en"
+src = "src"
+title = "ysh shell"
