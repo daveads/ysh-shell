@@ -8,7 +8,7 @@ class MDBookSidebarScrollbox extends HTMLElement {
         super();
     }
     connectedCallback() {
-        this.innerHTML = '<ol class="chapter"><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></span></li></ol>';
+        this.innerHTML = '<ol class="chapter"><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="index.html">Introduction</a></span></li><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></span></li><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="basic.html"><strong aria-hidden="true">2.</strong> Basics</a></span><ol class="section"><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="Basics/hello.html"><strong aria-hidden="true">2.1.</strong> Hello, World!</a></span></li><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="Basics/variable.html"><strong aria-hidden="true">2.2.</strong> Variable</a></span></li><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="Basics/fucntion.html"><strong aria-hidden="true">2.3.</strong> Fuction</a></span></li></ol><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="ysh-scripting.html"><strong aria-hidden="true">3.</strong> Usage-Examples</a></span><ol class="section"><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="Usage/cron-job-in-ysh.html"><strong aria-hidden="true">3.1.</strong> cron-job</a></span></li></ol><li class="chapter-item expanded "><span class="chapter-link-wrapper"><a href="reference.html"><strong aria-hidden="true">4.</strong> Reference</a></span></li></ol>';
         // Set the current, active page, and reveal it if it's hidden
         let current_page = document.location.href.toString().split('#')[0].split('?')[0];
         if (current_page.endsWith('/')) {
@@ -391,7 +391,7 @@ window.customElements.define('mdbook-sidebar-scrollbox', MDBookSidebarScrollbox)
                     stack.push({level: nextLevel, ol: ol});
                 }
             } else if (level < currentLevel) {
-                while (stack.length > 1 && stack[stack.length - 1].level >= level) {
+                while (stack.length > 1 && stack[stack.length - 1].level > level) {
                     stack.pop();
                 }
             }
